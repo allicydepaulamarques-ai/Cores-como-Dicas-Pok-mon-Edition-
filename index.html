@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+    <title>Cores como Dicas (Pokémon Edition)</title>
+    <meta
+      name="description"
+      content="Jogo web interativo de adivinhação de cores do Pokémon, pronto para GitHub Pages."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Pokédex Mini</p>
+          <h1>Cores como Dicas</h1>
+        </div>
+        <div class="score-panel">
+          <span>Pontos</span>
+          <strong id="score">0</strong>
+        </div>
+      </header>
+
+      <main class="game-area">
+        <section id="start-screen" class="panel visible">
+          <div class="panel-header">
+            <h2>Escolha o modo</h2>
+          </div>
+
+          <div class="rules-box">
+            <h3>Regras do jogo</h3>
+            <ul>
+              <li>Você tem 3 tentativas para acertar a cor de cada Pokémon.</li>
+              <li>Em cada rodada, o jogo segue até 5 Pokémon.</li>
+              <li>Se acertar na 1ª ou 2ª tentativa, ganha 50 pontos.</li>
+              <li>Se acertar na 3ª tentativa, ganha 25 pontos.</li>
+              <li>Ao terminar a rodada de 5 Pokémon, o jogo volta ao menu.</li>
+            </ul>
+          </div>
+
+          <div class="mode-grid">
+            <button class="mode-button" data-mode="easy">
+              <span>Fácil</span>
+              <small>cores mais claras e próximas</small>
+            </button>
+            <button class="mode-button" data-mode="normal">
+              <span>Médio</span>
+              <small>equilíbrio entre desafio e precisão</small>
+            </button>
+            <button class="mode-button" data-mode="hard">
+              <span>Difícil</span>
+              <small>opções bem parecidas</small>
+            </button>
+          </div>
+        </section>
+
+        <section id="game-screen" class="panel hidden">
+          <div class="status-row">
+            <div class="status-item">
+              <span>Streak</span>
+              <strong id="streak">0</strong>
+            </div>
+            <div class="status-item">
+              <span>Tentativas</span>
+              <strong id="lives">3</strong>
+            </div>
+            <div class="status-item">
+              <span>Pokémon</span>
+              <strong id="round-progress">0/5</strong>
+            </div>
+          </div>
+
+          <div class="pokemon-card">
+            <div class="sprite-wrap">
+              <img id="pokemon-sprite" class="silhouette" alt="Pokémon" />
+            </div>
+            <div class="pokemon-info">
+              <p class="label">Pokémon</p>
+              <h2 id="pokemon-name">Carregando...</h2>
+            </div>
+          </div>
+
+          <div class="color-grid" id="color-grid" aria-label="Opções de cor"></div>
+
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+
+          <button id="next-round" class="next-button hidden" type="button">
+            Próxima rodada
+          </button>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
